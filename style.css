@@ -6,42 +6,41 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.sidebar{
+.sd{
   position: fixed;
   height: 100%;
   width: 240px;
   background: #0A2558;
   transition: all 0.5s ease;
 }
-.sidebar.active{
+.sd.active{
   width: 60px;
 }
-.sidebar .logo-details{
+.sd .logo-details{
   height: 80px;
   display: flex;
   align-items: center;
 }
-.sidebar .logo-details i{
-  font-size: 28px;
-  font-weight: 500;
+.sd .logo-details i{
+  size: 40px;
   color: #fff;
   min-width: 60px;
   text-align: center
 }
-.sidebar .logo-details .logo_name{
+.sd .logo-details .logo_name{
   color: #fff;
   font-size: 24px;
   font-weight: 500;
 }
-.sidebar .nav-links{
+.sd .nav-links{
   margin-top: 10px;
 }
-.sidebar .nav-links li{
+.sd .nav-links li{
   position: relative;
   list-style: none;
   height: 50px;
 }
-.sidebar .nav-links li a{
+.sd .nav-links li a{
   height: 100%;
   width: 100%;
   display: flex;
@@ -49,25 +48,26 @@
   text-decoration: none;
   transition: all 0.4s ease;
 }
-.sidebar .nav-links li a.active{
+.sd .nav-links li a.active{
   background: #081D45;
 }
-.sidebar .nav-links li a:hover{
+.sd .nav-links li a:hover{
   background: #081D45;
 }
-.sidebar .nav-links li i{
+.sd .nav-links li i{
   min-width: 60px;
   text-align: center;
-  font-size: 18px;
+  size: 18px;
   color: #fff;
+
 }
-.sidebar .nav-links li a .links_name{
+.sd .nav-links li a .links_name{
   color: #fff;
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
 }
-.sidebar .nav-links .log_out{
+.sd .nav-links .log_out{
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -80,7 +80,7 @@
   left: 240px;
   transition: all 0.5s ease;
 }
-.sidebar.active ~ .home-section{
+.sd.active ~ .home-section{
   width: calc(100% - 60px);
   left: 60px;
 }
@@ -99,24 +99,24 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease;
 }
-.sidebar.active ~ .home-section nav{
+.sd.active ~ .home-section nav{
   left: 60px;
   width: calc(100% - 60px);
 }
-.home-section nav .sidebar-button{
+.home-section nav .sd-button{
   display: flex;
   align-items: center;
   font-size: 24px;
   font-weight: 500;
 }
-nav .sidebar-button i{
-  font-size: 35px;
+nav .sd-button i{
+  size: 35px;
   margin-right: 10px;
 }
 .home-section nav .search-box{
   position: relative;
   height: 50px;
-  max-width: 550px;
+  max-width: 550px; 
   width: 100%;
   margin: 0 20px;
 }
@@ -253,51 +253,51 @@ nav .profile-details i{
   font-size: 20px;
   font-weight: 500;
 }
-.home-content .sales-boxes{
+.home-content .session-boxes{
   display: flex;
   justify-content: space-between;
   /* padding: 0 20px; */
 }
 
 /* left box */
-.home-content .sales-boxes .recent-sales{
+.home-content .session-boxes .recent-session{
   width: 100%;
   background: #fff;
   padding: 20px 30px;
   margin: 0 20px;
-  border-radius: 12px;
+  border-radius: 24px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.home-content .sales-boxes .sales-details{
+.home-content .session-boxes .session-details{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.sales-boxes .box .title{
+.session-boxes .box .title{
   font-size: 24px;
   font-weight: 500;
   /* margin-bottom: 10px; */
 }
-.sales-boxes .sales-details li.topic{
+.session-boxes .session-details li.topic{
   font-size: 20px;
   font-weight: 500;
 }
-.sales-boxes .sales-details li{
+.session-boxes .session-details li{
   list-style: none;
   margin: 8px 0;
 }
-.sales-boxes .sales-details li a{
+.session-boxes .session-details li a{
   font-size: 18px;
   color: #333;
   font-size: 400;
   text-decoration: none;
 }
-.sales-boxes .box .button{
+.session-boxes .box .button{
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-.sales-boxes .box .button a{
+.session-boxes .box .button a{
   color: #fff;
   background: #0A2558;
   padding: 4px 12px;
@@ -307,12 +307,12 @@ nav .profile-details i{
   text-decoration: none;
   transition: all 0.3s ease;
 }
-.sales-boxes .box .button a:hover{
+.session-boxes .box .button a:hover{
   background:  #0d3073;
 }
 
 /* Right box */
-.home-content .sales-boxes .top-sales{
+.home-content .session-boxes .top-session{
   width: 35%;
   background: #fff;
   padding: 20px 30px;
@@ -320,13 +320,13 @@ nav .profile-details i{
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.sales-boxes .top-sales li{
+.session-boxes .top-session li{
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 10px 0;
 }
-.sales-boxes .top-sales li a img{
+.session-boxes .top-session li a img{
   height: 40px;
   width: 40px;
   object-fit: cover;
@@ -334,12 +334,12 @@ nav .profile-details i{
   margin-right: 10px;
   background: #333;
 }
-.sales-boxes .top-sales li a{
+.session-boxes .top-session li a{
   display: flex;
   align-items: center;
   text-decoration: none;
 }
-.sales-boxes .top-sales li .product,
+.session-boxes .top-session li .product,
 .price{
   font-size: 17px;
   font-weight: 400;
@@ -347,17 +347,17 @@ nav .profile-details i{
 }
 /* Responsive Media Query */
 @media (max-width: 1240px) {
-  .sidebar{
+  .sd{
     width: 60px;
   }
-  .sidebar.active{
+  .sd.active{
     width: 220px;
   }
   .home-section{
     width: calc(100% - 60px);
     left: 60px;
   }
-  .sidebar.active ~ .home-section{
+  .sd.active ~ .home-section{
     left: 220px;
     width: calc(100% - 220px);
     overflow: hidden;
@@ -366,21 +366,21 @@ nav .profile-details i{
     width: calc(100% - 60px);
     left: 60px;
   }
-  .sidebar.active ~ .home-section nav{
+  .sd.active ~ .home-section nav{
     width: calc(100% - 220px);
     left: 220px;
   }
 }
 @media (max-width: 1150px) {
-  .home-content .sales-boxes{
+  .home-content .session-boxes{
     flex-direction: column;
   }
-  .home-content .sales-boxes .box{
+  .home-content .session-boxes .box{
     width: 100%;
     overflow-x: scroll;
     margin-bottom: 30px;
   }
-  .home-content .sales-boxes .top-sales{
+  .home-content .session-boxes .top-session{
     margin: 0;
   }
 }
@@ -391,7 +391,7 @@ nav .profile-details i{
   }
 }
 @media (max-width: 700px) {
-  nav .sidebar-button .dashboard,
+  nav .sd-button .dashboard,
   nav .profile-details .admin_name,
   nav .profile-details i{
     display: none;
@@ -400,7 +400,7 @@ nav .profile-details i{
     height: 50px;
     min-width: 40px;
   }
-  .home-content .sales-boxes .sales-details{
+  .home-content .session-boxes .session-details{
     width: 560px;
   }
 }
@@ -409,31 +409,33 @@ nav .profile-details i{
     width: 100%;
     margin-bottom: 15px;
   }
-  .sidebar.active ~ .home-section nav .profile-details{
+  .sd.active ~ .home-section nav .profile-details{
     display: none;
   }
 }
 @media (max-width: 400px) {
-  .sidebar{
+  .sd{
     width: 0;
   }
-  .sidebar.active{
+  .sd.active{
     width: 60px;
   }
   .home-section{
     width: 100%;
     left: 0;
   }
-  .sidebar.active ~ .home-section{
-    left: 60px;
+  .sd.active ~ .home-section{
+    left: 40px;
     width: calc(100% - 60px);
   }
   .home-section nav{
     width: 100%;
     left: 0;
   }
-  .sidebar.active ~ .home-section nav{
+  .sd.active ~ .home-section nav{
     left: 60px;
     width: calc(100% - 60px);
   }
+
 }
+

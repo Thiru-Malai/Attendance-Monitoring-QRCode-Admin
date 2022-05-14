@@ -1,9 +1,9 @@
-let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".sidebarBtn");
-sidebarBtn.onclick = function() {
-  sidebar.classList.toggle("active");
-  if(sidebar.classList.contains("active")){
-  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+let sd = document.querySelector(".sd");
+let sdBtn = document.querySelector(".sdBtn");
+sdBtn.onclick = function() {
+  sd.classList.toggle("active");  
+  if(sd.classList.contains("active")){
+  sdBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
 }else
-  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  sdBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
