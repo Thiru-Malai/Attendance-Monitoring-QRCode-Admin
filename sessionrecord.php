@@ -3,7 +3,9 @@
     include_once('database.php');
     session_start();
     $data = $users->find();
+    $sessionhistory = $session->find();
     $array = iterator_to_array($data);
+    $sessionhistoryarray = iterator_to_array($sessionhistory);
 ?>
 <html>
 
@@ -45,41 +47,45 @@
               <th scope="col">TOTAL TIME SPENT (MIN)</th>
             </tr>
           </thead>';
-          
-              foreach($array as $key){
-                if($key->currentLab == 1){
-                $exittime = $session->find();
-                $userid = $key->_id;
-                $item = $session->findOne(["entryUser" => $userid]);
+            $regNumber = "";
+            $name = ""; 
+              foreach($sessionhistoryarray as $key){
+                if($key->recordStatus == 1){
+                $item = $users->findOne(["_id" => ($key->entryUser)]);
+
                 if($item != null){
-                }
-                $exitarray = iterator_to_array($exittime);
-    
-                date_default_timezone_set('Asia/Kolkata');
-                $logintime = strtotime($key->createdAt->toDateTime()->format('H:i:s')); 
-                $logouttime = strtotime($key->updatedAt->toDateTime()->format('H:i:s'));
-                $updatedtime = date('H:i', strToTime('330 minutes',$logouttime));
+                    $item = $users->find(["_id" => $key->entryUser]);
+                    foreach($item as $val){
+                        $regNumber = $val->regNumber;
+                        $name = $val->userName;
+                    }   
+
+                
+                    date_default_timezone_set('Asia/Kolkata');
+
+                $logintime = strtotime($key->entryTime->toDateTime()->format('H:i:s')); 
+                $logouttime = strtotime($key->exitTime->toDateTime()->format('H:i:s'));
 
             echo'
             <tbody>
                 <tr>
-                  <th scope="row">'.$key->regNumber.'</th>
-                  <td>'.$key->userName.'</td>
+                  <th scope="row">'.$regNumber.'</th>
+                  <td>'.$name.'</td>
+                  <td>'.date('H:i', strToTime('330 minutes',$logintime)).'</td>
                   <td>'.date('H:i', strToTime('330 minutes',$logouttime)).'</td>
-                  <td>'.date('H:i',time()).'</td>
-                  <td>'.totaltime(strToTime($updatedtime), $logouttime).'</td>
+                  <td>'.totaltime($logintime, $logouttime).'</td>
                 </tr>
             </tbody>
             </div>
             </div>
         </div>
           ';
+        }   
         }
-    }
+        }
         echo' </table></div>  ';
         }
         function totaltime($logintime, $logouttime){
-          date_default_timezone_set('Asia/Kolkata');
           $in = date($logintime);
           $out = date($logouttime);
           $login = date('H:i:s', $in);
@@ -87,12 +93,13 @@
           $currentDate =  time();
           $Date1 = date("H:i:s", strtotime($login));
           $Date2 = date("H:i:s", strtotime($logout));
-          $totalSecondsDiff = abs($logintime - $currentDate);
+          $totalSecondsDiff = abs($logintime - $logouttime);
           $totalMinutesDiff = $totalSecondsDiff/60;
           return round($totalMinutesDiff);
         }
         ?>
     </div>
+
 </body>
 
 </html>

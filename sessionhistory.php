@@ -2,7 +2,9 @@
     include_once('database.php');
     session_start();
     $data = $users->find();
+    $sessionhistory = $session->find();
     $array = iterator_to_array($data);
+    $sessionhistoryarray = iterator_to_array($sessionhistory);
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +26,10 @@
 <script>
 $(document).ready(function() {
     setInterval(function() {
-        $("#session-users").load("session.php");
+        $("#session-users").load("sessionrecord.php");
+        $("#numbers").load("noofstudents.php");
     }, 3000);
-});
+}); 
 </script>
 
 
@@ -38,13 +41,13 @@ $(document).ready(function() {
         </div>
         <ul class="nav-links">
             <li>
-                <a href="#" class="active">
+                <a href="index.php">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="sessionhistory.php">
+                <a href="#"  class="active">
                     <i class='bx bx-cog'></i>
                     <span class="links_name">Session History</span>
                 </a>
@@ -86,15 +89,9 @@ $(document).ready(function() {
                 <div class="box">
                     <div class="right-side">
                         <div class="box-topic">Total Students</div>
-                        <div class="number">
-                            <?php $count = 0;
-                                foreach($array as $key){
-                                  if($key->currentLab == 1){
-                                    $count++;
-                                  }
-                                }
-                                echo $count;
-                              ?></div>
+                        <div id = "numbers">
+                        
+                        </div>
                     </div>
                 </div>
             </div>
