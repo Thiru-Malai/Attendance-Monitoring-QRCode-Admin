@@ -1,5 +1,4 @@
 <?php
-    require './vendor/autoload.php';
     include_once('database.php');
     session_start();
     $data = $users->find();
@@ -48,12 +47,10 @@
           
               foreach($array as $key){
                 if($key->currentLab == 1){
-                $exittime = $session->find();
                 $userid = $key->_id;
                 $item = $session->findOne(["entryUser" => $userid]);
                 if($item != null){
                 }
-                $exitarray = iterator_to_array($exittime);
     
                 date_default_timezone_set('Asia/Kolkata');
                 $logintime = strtotime($key->createdAt->toDateTime()->format('H:i:s')); 
@@ -67,7 +64,7 @@
                   <td>'.$key->userName.'</td>
                   <td>'.date('H:i', strToTime('330 minutes',$logouttime)).'</td>
                   <td>'.date('H:i',time()).'</td>
-                  <td>'.totaltime(strToTime($updatedtime), $logouttime).'</td>
+                  <td>'.totaltime(strToTime($updatedtime)).'</td>
                 </tr>
             </tbody>
             </div>
@@ -78,15 +75,9 @@
     }
         echo' </table></div>  ';
         }
-        function totaltime($logintime, $logouttime){
+        function totaltime($logintime){
           date_default_timezone_set('Asia/Kolkata');
-          $in = date($logintime);
-          $out = date($logouttime);
-          $login = date('H:i:s', $in);
-          $logout = date('H:i:s ',$out);
           $currentDate =  time();
-          $Date1 = date("H:i:s", strtotime($login));
-          $Date2 = date("H:i:s", strtotime($logout));
           $totalSecondsDiff = abs($logintime - $currentDate);
           $totalMinutesDiff = $totalSecondsDiff/60;
           return round($totalMinutesDiff);
@@ -94,5 +85,4 @@
         ?>
     </div>
 </body>
-
 </html>

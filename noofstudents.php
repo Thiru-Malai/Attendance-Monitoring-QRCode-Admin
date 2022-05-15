@@ -6,7 +6,6 @@
     $array = iterator_to_array($data);
     $sessionhistoryarray = iterator_to_array($sessionhistory);
 ?>
-
 <html>
 <div class="number">
     <?php $count = 0;

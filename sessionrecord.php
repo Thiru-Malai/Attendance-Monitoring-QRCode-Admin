@@ -1,5 +1,4 @@
 <?php
-    require './vendor/autoload.php';
     include_once('database.php');
     session_start();
     $data = $users->find();
@@ -86,13 +85,6 @@
         echo' </table></div>  ';
         }
         function totaltime($logintime, $logouttime){
-          $in = date($logintime);
-          $out = date($logouttime);
-          $login = date('H:i:s', $in);
-          $logout = date('H:i:s ',$out);
-          $currentDate =  time();
-          $Date1 = date("H:i:s", strtotime($login));
-          $Date2 = date("H:i:s", strtotime($logout));
           $totalSecondsDiff = abs($logintime - $logouttime);
           $totalMinutesDiff = $totalSecondsDiff/60;
           return round($totalMinutesDiff);
@@ -101,5 +93,4 @@
     </div>
 
 </body>
-
 </html>
