@@ -1,10 +1,9 @@
 <?php
     include_once('database.php');
-    session_start();
     $data = $users->find();
-    $sessionhistory = $session->find();
+    $sessionhistory1 = $session->find();
     $array = iterator_to_array($data);
-    $sessionhistoryarray = iterator_to_array($sessionhistory);
+    $sessionhistoryarray = iterator_to_array($sessionhistory1);
 ?>
 <html>
 
@@ -62,8 +61,8 @@
                 
                     date_default_timezone_set('Asia/Kolkata');
 
-                $logintime = strtotime($key->entryTime->toDateTime()->format('H:i:s')); 
-                $logouttime = strtotime($key->exitTime->toDateTime()->format('H:i:s'));
+                $logintime = strtotime($key->entryTime->toDateTime()->format('d-m-y H:i:s')); 
+                $logouttime = strtotime($key->exitTime->toDateTime()->format('d-m-y H:i:s'));
 
             echo'
             <tbody>

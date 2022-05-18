@@ -1,12 +1,11 @@
 <?php
     include_once('database.php');
-    session_start();
     $data = $users->find();
     $array = iterator_to_array($data);
 ?>
 <html>
 
-<head>
+<head>  
     <meta charset="UTF-8">
     <title> Session </title>
     <!-- Boxicons CDN Link -->
@@ -53,9 +52,9 @@
                 }
     
                 date_default_timezone_set('Asia/Kolkata');
-                $logintime = strtotime($key->createdAt->toDateTime()->format('H:i:s')); 
-                $logouttime = strtotime($key->updatedAt->toDateTime()->format('H:i:s'));
-                $updatedtime = date('H:i', strToTime('330 minutes',$logouttime));
+                $logintime = strtotime($key->createdAt->toDateTime()->format('d-m-y H:i:s')); 
+                $logouttime = strtotime($key->updatedAt->toDateTime()->format('d-m-y H:i:s'));
+                $updatedtime = date('d-m-y H:i', strToTime('330 minutes',$logouttime));
 
             echo'
             <tbody>

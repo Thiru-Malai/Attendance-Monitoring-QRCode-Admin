@@ -1,6 +1,5 @@
 <?php
     include_once('database.php');
-    session_start();
     $data = $users->find();
     $sessionhistory = $session->find();
     $array = iterator_to_array($data);
